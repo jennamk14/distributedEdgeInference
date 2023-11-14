@@ -1,0 +1,4 @@
+AustinServer 10.0.0.17
+PiWorker1 10.0.0.2
+PiWorker2 10.0.0.22
+PiWorker3 10.0.0.x 
