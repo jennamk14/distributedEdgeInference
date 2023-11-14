@@ -36,7 +36,9 @@ StartUp Process:
     1)python3 master.py
     Start controler. 
     2)python3 controler.py
-    3)start wlg: start recieve then send.
+    start wlg: start recieve then send.
+    3)python3 client_recieve.py <inPort>
+    4)python3 client_recieve.py
 
 Requirments:
     python 3.10
