@@ -47,6 +47,7 @@ To-Do:
     Add actual inference to server.py rather than just delayed message passing. 
     Add better bringup/shutdown logic to master
     Add an aditional field that quantifies performance to the controlers output so the master can use it in scheduling.
+    Integrate new bursty wlg. 
 
 Note:
     Sending messages to external networks is going to be hard without enabling port forwarding on router. Find workaround. 
