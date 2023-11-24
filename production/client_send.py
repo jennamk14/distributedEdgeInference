@@ -67,8 +67,7 @@ def send_message(server_ip, server_port, return_ip, return_port, message):
             "message": message,
             "returnIP": return_ip,
             "returnPort": return_port,
-            "start_time": start_time, 
-            "model_parallelism": mp # boolean
+            "start_time": start_time
         }
         s.sendall(json.dumps(message_payload).encode())
 
@@ -115,7 +114,7 @@ def generate_bursty_arrival_times():
     arrival_times_dict = {}
 
     total_time = input("Enter total simulation time: ") # example: 150 seconds
-    model_parallelism = input("Execute model parallelism (Y/N): ") # example: "Y" for yes
+    # model_parallelism = input("Execute model parallelism (Y/N): ") # example: "Y" for yes
     model_count = input("Enter number of models: ") # example: 1
     for i in range(model_count):
         model = input("Enter model: ") # example: "M1"
@@ -142,11 +141,6 @@ if __name__ == "__main__":
     # get constants to generate bursty arrival times from user
     arrival_times, model_parallelism = generate_bursty_arrival_times()
 
-    # convert model_parallelism to boolean
-    if model_parallelism == "Y":
-        mp = True
-    else:
-        mp = False
 
     # send messages to server based on arrival times
     for a in arrival_times: # iterate through arrival times for each model
@@ -154,5 +148,5 @@ if __name__ == "__main__":
         arrival_times = a[1] # arrival times for each model
         for arrival_time in arrival_times: # iterate through arrival times for each model
             time.sleep(arrival_time) # wait until arrival time
-            send_message(server_ip, server_port, return_ip, return_port, model, mp)  # send_message("10.0.0.17", 5000, "10.0.0.17", 5001, "M1-")
+            send_message(server_ip, server_port, return_ip, return_port, model)  # send_message("10.0.0.17", 5000, "10.0.0.17", 5001, "M1-")
             # question for Austin: where is this being sent to? is it being sent to the server or the next node?
